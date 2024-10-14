@@ -1,0 +1,459 @@
+/*stylesheet voor mobile*/
+
+/* ---setup */
+
+@font-face {
+    src: url(../fonts/Sofia\ Pro\ Regular\ Az.otf);
+    font-family: "Sofia Pro";
+    /*font voor gehele pagina*/
+}
+
+*{
+    margin:0;
+    padding:0;
+}
+
+:root {
+    --accentgrey: rgb(228,228,228); /*algemene accentkleur*/
+}
+
+body {
+    width:100vw;
+    height:100%;
+    margin: 0 auto;
+    font-family: "Sofia Pro", arial, monospace;
+    font-size:27px;
+}
+
+#container {
+    margin: 0 auto;
+    background-color:white;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    width:100vw;
+    /*algemene paginalayout is flex kolom*/
+}
+
+h1, h2, h3, h4 {
+    font-weight:normal;
+}
+
+a {
+    text-decoration:none;
+    color:black;
+}
+
+/* ---header */
+
+header {
+    display: flex;
+    flex-direction:row;
+    gap:20px;
+    align-items:center;
+    height:7dvh;
+    width:100vw;
+    /*position:sticky;
+    top:0px;*/
+    justify-content:space-between;
+    /* header is een x flex */
+}
+
+header img {
+    height: 5.5dvw;
+    width:auto;
+}
+
+/*header icons positioneren*/
+header > img:nth-child(1) {
+    justify-self:start;
+    padding-left:10px;
+}
+header > img:nth-child(3) {
+    justify-self: end;
+    padding-right:10px;
+}
+
+/* ---content */
+
+main {
+    width:100vw;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    margin: 0 auto;
+    margin-top:0px;
+    justify-self:center;
+    /*main contentblok is een y flex*/
+}
+
+/*geselecteerde image grootte definieren*/
+#main-image {
+    width:100vw;
+    height:57.4vh;
+    background-color: var(--accentgrey);
+    background-image: url(../images/puffer-jacket-big.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+/* galerij onder main image */
+
+#image-gallery {
+    display: flex;
+    gap:15px;
+    flex-flow: row wrap;
+    padding:30px;
+}
+
+#image-gallery > img {
+    width:20vw;
+    height:20vw;
+    flex: 1;
+    object-fit:cover;
+}
+
+/*transparentie van ongeselecteerde gallery images*/
+#image-gallery > img:not(#image-gallery > img:nth-child(3)){
+    filter:opacity(75%);
+}
+#image-gallery > img:not(#image-gallery > img:nth-child(3)):hover{
+    filter:opacity(100%);
+    cursor:pointer;
+}
+
+/* items onder de galerij binnen de main e.g. item title, item price, item desc */
+
+main > #content {
+    padding:0px 30px;
+}
+
+main > #content h3 {
+    font-size:1.4em
+}
+
+/*item text uitlijnen onder de galerij*/
+main > #content h2, main > #content h1 {
+    margin-top:1.5dvh;
+}
+main > #content h2 { /*prijs*/
+    font-size:3.2rem;
+}
+main > #content p { /*korte beschrijving*/
+    margin-top:3dvh;
+    font-size:2rem;
+    line-height:3.7rem;
+}
+
+/*amount en add to cart buttons*/
+
+#content-buttons {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    gap:20px;
+    margin-top:4dvh;
+}
+
+#content-buttons > a > button {
+    width:100%;
+    height:100%;
+    border-radius:0px;
+    font-size:2.3rem;
+    text-transform:uppercase;
+    text-align:center;
+}
+
+#content-buttons > a {
+    height:8dvh;
+}
+
+#content-buttons > a > button:hover {
+    cursor:pointer;
+}
+
+#content-buttons > a:first-child {
+    width:10vw;
+}
+#content-buttons > a:first-child > button {
+    background-color:white;
+    border: 5px solid var(--accentgrey);
+    width:30vw;
+}
+
+#content-buttons > a:last-child > button {
+    background-color:black;
+    color:white;
+    width:61vw;
+    letter-spacing:0.2rem;
+}
+
+/*wishlist en share*/
+
+#content-share {
+    display:flex;
+    flex-direction:row;
+    gap:5rem;
+    font-size:2.4rem;
+    margin-top:3dvh;
+    text-transform:uppercase;
+}
+
+#content-share i {
+    padding-right:20px;
+}
+
+#content-share > a:hover {
+    text-decoration:underline;
+    text-underline-offset:1rem;
+}
+
+/* tags */
+
+#content > section:first-of-type {
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    margin-top:5dvh;
+    font-size:1.2em;
+}
+
+/* voorzetsels bij tags regelen*/
+#content > section > span::before {
+    color:gray;
+}
+#content > section > span:first-child::before{
+    content:"SKU:"
+}
+#content > section > span:nth-child(2)::before{
+    content:"CATEGORIES:"
+}
+#content > section > span:last-child::before{
+    content:"TAGS:"
+}
+
+/* extra content selectie */
+
+#info-selectors {
+    display:flex;
+    flex-flow: row wrap;
+    text-align:center;
+    justify-content:center;
+    font-size:1.3em;
+    gap:1.5rem;
+    margin-top:4.5dvh;
+    text-transform:uppercase;
+}
+
+#info-selectors > a {
+    flex: 1 0 auto;
+    padding: 0px 20px;
+    color:grey;
+}
+
+#info-selectors > a:first-child {
+    color:black;
+    text-decoration:underline;
+    text-underline-offset:1.5rem;
+}
+
+/* description */
+
+#content > section:nth-of-type(2) {
+    line-height:4rem;
+    margin-top:3dvh;
+}
+
+/* description lists */
+
+/*algemene uitlijning voor beide de ul en ol*/
+#content > section:nth-of-type(3), #content > section:nth-of-type(4) {
+    margin-top:4dvh;
+    display:flex;
+    flex-direction:column;
+    gap:2dvh;
+}
+#content > section:nth-of-type(3) > ul, #content > section:nth-of-type(4) > ol {
+    list-style-position:inside;
+    font-size:1.2em;
+} 
+#content > section:nth-of-type(3) > ul > li, #content > section:nth-of-type(4) > ol > li {
+    margin:1.4dvh 0dvh;
+}
+
+/*ul styling*/
+#content > section:nth-of-type(3) > ul > li::marker {
+    color: var(--accentgrey);
+}
+
+/*ol styling*/
+#content > section:nth-of-type(4) > ol {
+    list-style-type:decimal;
+}
+#content > section:nth-of-type(4) > ol > li:first-child {
+    text-wrap:nowrap;
+    overflow:hidden;
+}
+
+/*uitlijning laatste content section*/
+#content > section:nth-of-type(5) {
+    margin-top:3dvh;
+}
+#content > section:nth-of-type(5) > p {
+    margin-top:1.5dvh;
+}
+
+/* ---footer */
+
+/* algemene uitlijning footer & footer container (barrel) */
+
+footer {
+    width:100vw;
+    height:auto;
+    background-color: var(--accentgrey);
+    margin-top:5dvh;
+}
+
+#barrel {
+    padding:30px;
+    display:flex;
+    flex-direction:column;
+    gap:1.5dvh;
+    font-size:1.25em;
+}
+
+/* barrel content */
+
+#barrel > img:first-child {
+    height:4dvh;
+    width:17dvh;
+    margin-top:5dvh;
+    margin-bottom:3dvh;
+}
+
+#barrel > section {
+    display:flex;
+    flex-direction:column;
+    gap:1.5dvh;
+    margin-top: 3dvh;
+}
+
+#barrel > img:nth-of-type(2) {
+    width:55vw;
+    margin-top:3dvh;
+    height:auto;
+}
+
+/* uitlijning infolists */
+#barrel #infolists {
+    display:flex;
+    flex-flow:row wrap;
+}
+
+/* styling infolists */
+#barrel #infolists h4 {
+    text-transform:uppercase;
+    font-size:1.3em;
+    letter-spacing:0.15rem;
+}
+#barrel #infolists ul {
+    list-style-type: none;
+    margin-right: 25vw;
+}
+#barrel #infolists ul > li {
+    margin:2.7dvh 0dvh;
+}
+
+#barrel #infolists ul > li:hover {
+    text-decoration:underline;
+    text-underline-offset:1rem;
+}
+
+/* styling newsletter form */
+
+#barrel > section:nth-of-type(3) > h4 {
+    font-size: 1.3em;
+    text-transform:uppercase;
+    letter-spacing:0.15rem;
+    margin-bottom:1.5dvh;
+}
+
+#barrel > section:nth-of-type(3) > span {
+    line-height:3.5rem;
+}
+
+
+#barrel > section:nth-of-type(3) > form {
+    width:100%;
+    height:6dvh;
+    background-color:white;
+}
+
+/* styling & uitlijning invoervelden form */
+#barrel > section:nth-of-type(3) > form > input[type="email"] {
+    width:77%;
+    height:100%;
+    border-radius:0px;
+    border:1px solid white;
+    font-size:1em;
+    margin-left:3vw;
+}
+#barrel > section:nth-of-type(3) > form > input[type="submit"] {
+    width:16%;
+    height:100%;
+    border-radius:0px;
+    border:1px solid white;
+    background-color:white;
+    font-size:1em;
+}
+#barrel > section:nth-of-type(3) > form > input[type="submit"]:active {
+    background-color: gray;
+    color:white;
+}
+
+/* hr styling */
+
+hr {
+    background-color:lightgray;
+    height:3px;
+    margin:3vh 0vh;
+}
+
+/* ---infobar */
+
+/*algemene uitlijning infobar*/
+
+#infobar {
+    background-color: var(--accentgrey);
+    padding:0px 30px;
+    font-size:1.3em;
+}
+
+/*infobar list styling*/
+#infobar > ul {
+    list-style-type:none;
+}
+#infobar > ul > li {
+    margin-top:2dvh;
+}
+#infobar > ul > li:last-child {
+    margin-bottom:3dvh;
+}
+
+/*infobar select styling*/
+#infobar label {
+    color:grey;
+    margin-right:3.5vw;
+}
+
+#infobar select {
+    height:4dvh;
+    width:auto;
+    font-size:1em;
+    background-color: var(--accentgrey);
+    border-radius:0px;
+    border:0px;
+}
+#infobar select:hover {
+    background-color:silver;
+}
