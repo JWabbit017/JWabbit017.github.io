@@ -19,28 +19,33 @@ h2, h3 {
     overflow:hidden;
 }
 
-header {
-    background-color: rgba(30,30,80,0.9);
+#container > header {
+    background-color: rgba(30,30,80,0.1);
     width:100vw;
     height:9.5vh;
-    color:whitesmoke;
+    color:rgb(30,30,30);
     display:flex;
     flex-direction:row;
+    justify-content:space-between;
     align-content:center;
     border-bottom: 5px solid rgb(120,120,250);
-    position: sticky;
+    position:absolute;
 }
 
-header h1 {
+#container > header h1 {
     margin-left:2vw;
     font-size: clamp(1rem, 2rem, 3rem);
 }
 
-header h1::first-letter {
+#container > header a {
+    color: rgb(60,60,60);
+}
+
+#container > header h1::first-letter {
     text-transform:uppercase;
 }
 
-header ul {
+#container > header ul {
     display:flex;
     flex-direction:row;
     gap:4vw;
@@ -49,25 +54,54 @@ header ul {
     margin-left:3vw;
 }
 
-header > a {
+#container > header > a {
     margin-left:auto;
     margin-right:3vw;
     align-self:center;
+    color:rgb(60,60,60);
+}
+
+#container > header button {
+    height:4vh;
+    border:1px solid rgb(60,60,60);
+    border-radius:2px;
+    align-self:center;
+    margin-left:3vw;
+    background-color:rgba(60,60,60,0.1);
+    color:rgb(30,30,30);
+    cursor:pointer;
+    transition:background-color 500ms, color 500ms;
+}
+
+#container > header button:hover {
+    background-color: rgb(60,60,60);
+    color: whitesmoke;
+    transition:background-color 500ms, color 500ms;
 }
 
 a {
     text-decoration:none;
     font-size:1.05em;
     color:cyan;
+    transition:color 500ms;
+}
+
+a:hover {
+    color:cyan;
+    transition:color 500ms;
 }
 
 main {
     background-color:whitesmoke;
-    height:75vh;
+    height:85vh;
     text-align:center;
     overflow:auto;
-    scrollbar-width:thin;
+    scrollbar-width:none;
     scrollbar-color: rgb(120,120,250) rgba(0,0,0,0);
+}
+
+main > p:first-of-type {
+    margin-top:23vh;
 }
 
 main > p {
@@ -146,6 +180,10 @@ main > #buttons > input:focus {
     border:none;
 }
 
+main > i {
+    margin-top:20vh;
+}
+
 main > #about, main > #other {
     width:57vw;
     margin-left: auto;
@@ -174,6 +212,31 @@ main > #about a {
 main > #other {
     margin-top:20vh;
     margin-bottom:5vh;
+}
+
+main > #other main {
+    display:flex;
+    flex-flow: row wrap;
+    flex-shrink:0;
+    gap:2vw;
+    justify-content:space-evenly;
+    background-color: rgb(230,230,230);
+}
+
+main > #other section {
+    background-color:lightgrey;
+    height:30vh;
+    width:25vw;
+    display:flex;
+    flex-direction:column;
+    justify-content:start;
+    border-radius:15px;
+}
+
+main > #other ul {
+    list-style-type:circle;
+    list-style-position:outside;
+    text-align:left;
 }
 
 footer {
