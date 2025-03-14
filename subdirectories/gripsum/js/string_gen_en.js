@@ -1,82 +1,48 @@
-const selection = [
-    "Tristar",
-    "GR-2650",
-    "contactgrill",
-    "grilling",
-    "tasty",
-    "delicious",
-    "perfect for the preparation of",
-    "toasty",
-    "panini",
-    "meat and fish",
-    "vegetables",
-    "anti-char coating",
-    "with ease",
-    "prepares",
-    "meals",
-    "the most marvelous",
-    "simple",
-    "cleaning",
-    "praktical",
-    "floating lid",
-    "evenly heated",
-    "high quality",
-    "without oil",
-    "anti-slip feet",
-    "variety of products",
-    "perfect for",
-    "integrated handle",
-    "ergonomic",
-    "temperature",
-    "indicator light",
-    "advanced",
-    "high-tech",
-    "food",
-    "contact us",
-    "warranty",
-    "satisfied",
-    "with",
-    "without",
-    "using",
-    "always",
-    "extra",
-    "healthy",
-    "handy",
-    "extra functions",
-    "on the countertop"
-];
+const main = document.getElementById("test");
+const title = document.getElementById("title");
+const genbutton = document.getElementById("generate");
+//const copyButton = document.getElementById("copy");
+const button = document.querySelector("#container > header > button");
+let selection = null;
 
-//const selectionLength = [
-//
-//];
-
-var max = selection.length;
-var min = 0;
-var main = document.getElementById("test");
-var title = document.getElementById("title");
-var genbutton = document.getElementById("generate");
-const timesGenerated = 0;
-
-function ChooseArrayStr() 
+async function GetSelection()
 {
-    interCalc = Math.random() * max;
-    return (Math.round(interCalc));
+    let response = await fetch("././resources/selection-en.json");
+    let data = await response.json();
+    console.log("If you're reading this, this page is miraculously working correctly");
+    selection = data.array.selection;
 }
 
-function PullFromArray()
+GetSelection();
+
+function ChooseArrayStr(maxValue, minValue) 
 {
-    return selection[ChooseArrayStr()];
+    return (Math.round(Math.random() * maxValue) + minValue);
+}
+
+function Pull()
+{
+    return selection[ChooseArrayStr(selection.length, 0)];
 }
 
 function Apply()
-{
-    main.innerHTML = PullFromArray() + " " + PullFromArray() + " " + PullFromArray() + " " + PullFromArray() + " " + PullFromArray() + " " + PullFromArray() + " " + PullFromArray();
-    title.innerHTML = PullFromArray();
-    timesGenerated += 1;
+{  
+    const amountOfLines = document.getElementById("numberinput").value;
+    let amountToGen = ChooseArrayStr(8, 3);
+    let output = new String();
+
+    for (let j = 0; j < amountOfLines; j++)
+    {
+        for (let i = 0; i < amountToGen; i++)
+            {
+                output += `${Pull()} `;
+            }
+            output += ". ";
+    }
+    output = output.replaceAll(/\s\.\s/img, ". ");
+    main.innerHTML = output;
+    title.innerHTML = Pull();
 }
 
+//copyButton.addEventListener("click", CopyGenerated(main));
 genbutton.addEventListener("click", Apply, true);
-
-if (timesGenerated > 10) {
-    selection.push("A river dirt cheese");
-}

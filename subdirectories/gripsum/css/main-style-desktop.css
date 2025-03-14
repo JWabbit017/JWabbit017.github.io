@@ -61,7 +61,11 @@ h2, h3 {
     color:rgb(60,60,60);
 }
 
-#container > header button {
+#container > header form {
+    align-self:center;
+}
+
+#container > header input {
     height:4vh;
     border:1px solid rgb(60,60,60);
     border-radius:2px;
@@ -73,7 +77,7 @@ h2, h3 {
     transition:background-color 500ms, color 500ms;
 }
 
-#container > header button:hover {
+#container > header input:hover {
     background-color: rgb(60,60,60);
     color: whitesmoke;
     transition:background-color 500ms, color 500ms;
@@ -82,22 +86,23 @@ h2, h3 {
 a {
     text-decoration:none;
     font-size:1.05em;
-    color:cyan;
+    color:blue;
     transition:color 500ms;
 }
 
 a:hover {
-    color:cyan;
+    color:black;
     transition:color 500ms;
 }
 
 main {
     background-color:whitesmoke;
-    height:85vh;
+    height:100vh;
     text-align:center;
     overflow:auto;
     scrollbar-width:none;
     scrollbar-color: rgb(120,120,250) rgba(0,0,0,0);
+    scroll-behavior: smooth;
 }
 
 main > p:first-of-type {
@@ -144,21 +149,25 @@ main > #buttons button, main > #buttons input{
     font-size:1.2em;
     background-color:whitesmoke;
     margin-top:2.5vh;
+    transition: background-image 500ms;
 }
 
-main > #buttons > button {
+main > #buttons > #generate {
     width:15vw;
+    transition: background-image 500ms;
 }
 
-main > #buttons > button:hover {
+main > #buttons > #generate:hover {
     background-image: linear-gradient(to right, whitesmoke, lightgrey, lightgrey, whitesmoke);
     border-top:2px solid rgb(30,30,80);
     border-bottom:2px solid rgb(30,30,80);
     border-left:none;
     border-right:none;
+    transition: background-image 500ms;
+    cursor: pointer;
 }
 
-main > #buttons > button:active {
+main > #buttons > #generate:active {
     background-image: linear-gradient(to right, whitesmoke, lightgrey, lightgrey, whitesmoke);
     border-top:2px solid rgb(120,120,250);
     border-bottom:2px solid rgb(120,120,250);
@@ -169,6 +178,16 @@ main > #buttons > button:active {
     animation-iteration-count:1;
     animation-timing-function:linear;
     animation-fill-mode:both;
+    transition: background-image 500ms;
+}
+
+main > #buttons > #copy {
+    padding: 0vh 1.6vw;
+    cursor: pointer;
+}
+
+main > #buttons > #copy:hover {
+    background-image: linear-gradient(to right, whitesmoke, lightgrey, lightgrey, whitesmoke);
 }
 
 main > #buttons > input {
@@ -180,7 +199,11 @@ main > #buttons > input:focus {
     border:none;
 }
 
-main > i {
+main > a {
+    margin-top:20vh;
+}
+
+main > a i {
     margin-top:20vh;
 }
 
@@ -205,10 +228,6 @@ main > #about h2 {
     text-align:center;
 }
 
-main > #about a {
-    color: blue;
-}
-
 main > #other {
     margin-top:20vh;
     margin-bottom:5vh;
@@ -225,8 +244,9 @@ main > #other main {
 
 main > #other section {
     background-color:lightgrey;
-    height:30vh;
+    height:auto;
     width:25vw;
+    padding:0.5vw;
     display:flex;
     flex-direction:column;
     justify-content:start;
@@ -247,11 +267,6 @@ footer {
     flex-direction:row;
     color:rgb(30,30,80);
     border-top: 3px solid rgb(120,120,250);
-    position:static;
-}
-
-footer a {
-    color:blue;
 }
 
 footer img {

@@ -1,0 +1,5 @@
+Header add Access-Control-Allow-Origin "https://JWabbit017.github.io/subdirectories/gripsum/resources/selection-en.js"
+Header add Access-Control-Allow-Methods: "GET,POST,PUT"
+
+Header add Access-Control-Allow-Origin "https://JWabbit017.github.io/subdirectories/gripsum/resources/selection-nl.js"
+Header add Access-Control-Allow-Methods: "GET,POST,PUT"

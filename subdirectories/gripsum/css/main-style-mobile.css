@@ -5,6 +5,11 @@ header {
 header > h1 {
     font-size:1.4em;
     align-self:center;
+    display:none;
+}
+
+header > input {
+    display:none;
 }
 
 header > ul {
@@ -17,10 +22,16 @@ header > ul {
 
 main {
     scrollbar-width:none;
+    height:100vh;
 }
 
 main > #generated {
     width:95vw;
+}
+
+main > #buttons {
+    padding-bottom:13vh;
+    overflow:hidden;
 }
 
 main > #buttons > button {
@@ -32,7 +43,15 @@ main > #buttons > input {
 }
 
 main > #about, main > #other {
-    width:85vw;
+    display:none;
+}
+
+main > a {
+    display:none;
+}
+
+main i {
+    display:none;
 }
 
 footer {

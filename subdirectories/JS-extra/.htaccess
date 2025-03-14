@@ -1,0 +1,2 @@
+Header add Access-Control-Allow-Origin "././gripsum/resources/check.txt"
+Header add Access-Control-Allow-Methods: "GET,POST,PUT"
