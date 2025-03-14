@@ -49,7 +49,7 @@
                 <form action="<?=$_SERVER['PHP_SELF'];?>" method="get">
                     <input type="submit" name="scheme" id="color-mode" value="<?=$schemeVal;?>"></input>
                 </form>
-                <a href="index.php" target="_self">English Version</a>
+                <a href="gripsum-en.php" target="_self">English Version</a>
             </header>
             <main>
                 <p>Genereer de waardeloze text over contactgrills van je dromen!</p>
