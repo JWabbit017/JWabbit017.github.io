@@ -1,4 +1,6 @@
-const selected = document.querySelectorAll(".gripsum")
+const selected = document.querySelectorAll(".gripsum");
+const long = document.querySelectorAll("long");
+const short = document.querySelectorAll("short");
 //const copyButton = document.getElementById("copy");
 const button = document.querySelector("#container > header > button");
 let selection =
@@ -62,9 +64,8 @@ function Pull()
     return selection[ChooseArrayStr(selection.length, 0)];
 }
 
-function Apply()
+function Apply(amountOfLines)
 {  
-    const amountOfLines = 2;
     let amountToGen = ChooseArrayStr(8, 3);
     let output = new String();
 
@@ -83,5 +84,16 @@ function Apply()
 //copyButton.addEventListener("click", CopyGenerated(main));
 for (let selection of selected)
 {
-    selection.innerHTML = Apply();
+    if (selection.className === "gripsum short")
+    {
+        selection.innerHTML = Apply(1);
+    }
+    else if (selection.className === "gripsum long")
+    {
+        selection.innerHTML = Apply(3);
+    }
+    else
+    {
+        selection.innerHTML = Apply(2);
+    }
 }
