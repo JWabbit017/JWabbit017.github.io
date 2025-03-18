@@ -87,13 +87,16 @@ for (let selection of selected)
     if (selection.className === "gripsum short")
     {
         selection.innerHTML = Apply(1);
+        console.log("Gripsum API call [short] successful");
     }
     else if (selection.className === "gripsum long")
     {
         selection.innerHTML = Apply(3);
+        console.log("Gripsum API call [long] successful");
     }
     else
     {
         selection.innerHTML = Apply(2);
+        console.log("Gripsum API call [default] successful");
     }
 }
