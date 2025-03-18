@@ -1,17 +1,56 @@
 const selected = document.querySelectorAll(".gripsum")
 //const copyButton = document.getElementById("copy");
 const button = document.querySelector("#container > header > button");
-let selection = null;
-
-async function GetSelection()
-{
-    let response = await fetch("././resources/selection-en.json");
-    let data = await response.json();
-    console.log("If you're reading this, this page is miraculously working correctly");
-    selection = data.array.selection;
-}
-
-GetSelection();
+let selection =
+[
+    "Tristar",
+    "GR-2650",
+    "contactgrill",
+    "grilling",
+    "tasty",
+    "delicious",
+    "perfect for the preparation of",
+    "toasty",
+    "panini",
+    "meat and fish",
+    "vegetables",
+    "anti-char coating",
+    "with ease",
+    "prepares",
+    "meals",
+    "the most marvelous",
+    "simple",
+    "cleaning",
+    "praktical",
+    "floating lid",
+    "evenly heated",
+    "high quality",
+    "without oil",
+    "anti-slip feet",
+    "variety of products",
+    "perfect for",
+    "integrated handle",
+    "ergonomic",
+    "temperature",
+    "indicator light",
+    "advanced",
+    "high-tech",
+    "food",
+    "contact us",
+    "warranty",
+    "satisfied",
+    "with",
+    "without",
+    "using",
+    "always",
+    "extra",
+    "healthy",
+    "handy",
+    "extra functions",
+    "on the countertop",
+    "simply incredible",
+    "the"
+];
 
 function ChooseArrayStr(maxValue, minValue) 
 {
