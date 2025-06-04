@@ -1,5 +1,14 @@
 "use strict";
 
+/**
+ * @summary
+ * Deposits the values of a fieldset of inputs into an array.
+ * @param {*} fieldset
+ * The HTML element to dump the child inputs of.
+ * @param {boolean} returns 
+ * If set to true, method will return the value attributes of each of the dumped inputs.
+ * @returns  
+ */
 Element.prototype.DumpFieldset = function(fieldset = this, returns = true)
 {
     try
@@ -166,56 +175,48 @@ const JMath =
     }
 };
 
+/**
+ * @summary
+ * Object for generating dynamic HTML
+ */
 const JConstructor =
 {
-    Form: function(base, usesId = false, identifier = '', ...attributes)
+    current: [], // contains any nodes currently being processed by JConstructor
+    
+    /**
+     * @summary
+     * Generates HTML Nodes in parallel
+     * @param {object} base
+     * array|string: The name(s) of the elements to be formed in order. If a string or single-value array is passed, every generated node will be assigned the same base.
+     * @param {object} attributes
+     * array: The miscellaneous attributes to be appended to the forming elements. The data passed to this parameter must adhere to a strict format. For more information, please see official JMAC documentation at https://JWabbit017.github.io/JMAC.js
+     */
+    Form(base, attributes)
     {
-        if (typeof base === "object")
+        let arr = new Array;
+        
+        for (let i = 0; i < base.length; i++)
         {
-            arr = new Array;
-            
-            for (let i = 0; i < base.length; i++)
-            {
-                let el = document.createElement(base[i]);
+            let el = document.createElement(base[i]);
 
-                if (typeof identifier === "object" && !usesId)
-                {
-                    el.setAttribute("class", identifier[i]);
-                }
-                else if (typeof identifier === "string")
-                {
-                    el.setAttribute("class", identifier);
-                }
-
-                if (attributes[i][0] != undefined)
-                {
-                    for (let attribute of attributes)
-                    {
-                        el.setAttribute(attribute[i][0], attribute[i][1]);
-                    }
-                }
-
-                arr.push(el);
-            }
-
-            return arr;
-        }
-        else
-        {
-            let el = document.createElement(base);
-
-            if (identifier !== '')
-            {
-                usesId ? el.setAttribute("id", identifier) : el.setAttribute("class", identifier);
-            }
-
-            if (attributes[0] != undefined)
+            if (attributes[i] != undefined && attributes[i][0] != undefined)
             {
                 for (let attribute of attributes)
                 {
-                    el.setAttribute(attribute[0], attribute[1]);
+                    for (let property of attribute)
+                    {
+                        el.setAttribute(property[0], property[1]);
+                    }
                 }
             }
+            else
+            {
+                throw SyntaxError(this + ".Form() => Invalid data structure");
+            }
+
+            arr.push(el);
         }
+
+        return arr;
     }
 };
