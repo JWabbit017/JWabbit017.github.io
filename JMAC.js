@@ -9,7 +9,7 @@
  * If set to true, method will return the value attributes of each of the dumped inputs.
  * @returns  
  */
-Element.prototype.DumpFieldset = function(fieldset = this, returns = true)
+Element.prototype.DumpFieldset(fieldset = this, returns = true)
 {
     try
     {
